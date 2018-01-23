@@ -13,7 +13,7 @@ items:
     source:
       type: Git
       git:
-        uri: "https://github.com/Ladicek/rourka"
+        uri: "https://github.com/rhoar-ci/dashboard"
         ref: master
       contextDir: dashboard
     strategy:
