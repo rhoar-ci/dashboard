@@ -5,6 +5,12 @@
         h3.flash {
             color: blueviolet;
             font-style: italic;
+            display: inline;
+        }
+        a.clean-flash {
+            color: gray;
+            font-size: 90%;
+            text-transform: uppercase;
         }
 
         .cluster {
@@ -63,7 +69,9 @@
 </head>
 <body>
 
+<!--/*@thymesVar id="flash" type="java.lang.String"*/-->
 <h3 th:if="${flash != null}" th:text="${flash}" class="flash">Flash message</h3>
+<a th:if="${flash != null}" href="/" class="clean-flash">[Clean message]</a>
 
 <!--/*@thymesVar id="header" type="java.util.List<com.github.ladicek.rourka.ci.TestType>"*/-->
 <!--/*@thymesVar id="tables" type="java.util.Map<com.github.ladicek.rourka.ci.TestCluster,java.util.Map<com.github.ladicek.rourka.ci.TestDescription, Map<com.github.ladicek.rourka.ci.TestType,com.github.ladicek.rourka.ci.TestResult>>>"*/-->
