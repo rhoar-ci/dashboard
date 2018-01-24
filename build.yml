@@ -15,7 +15,6 @@ items:
       git:
         uri: "https://github.com/rhoar-ci/dashboard"
         ref: master
-      contextDir: dashboard
     strategy:
       type: Source
       sourceStrategy:
