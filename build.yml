@@ -34,7 +34,7 @@ items:
   metadata:
     name: rourka
   roleRef:
-    name: view
+    name: edit
   subjects:
   - kind: ServiceAccount
     name: rourka
