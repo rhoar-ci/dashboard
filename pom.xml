@@ -24,6 +24,8 @@
         <version.org.thymeleaf>3.0.9.RELEASE</version.org.thymeleaf>
         <version.org.thymeleaf.extras.java8time>3.0.1.RELEASE</version.org.thymeleaf.extras.java8time>
         <version.org.wildfly.swarm>2018.1.0</version.org.wildfly.swarm>
+
+        <fabric8.generator.from>registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift</fabric8.generator.from>
     </properties>
 
     <dependencyManagement>
