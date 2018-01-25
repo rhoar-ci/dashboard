@@ -1,4 +1,4 @@
-package com.github.ladicek.rourka.thymeleaf;
+package com.github.rhoar_ci.dashboard.thymeleaf;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;

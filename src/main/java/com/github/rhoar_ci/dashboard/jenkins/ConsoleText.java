@@ -1,4 +1,4 @@
-package com.github.ladicek.rourka.jenkins;
+package com.github.rhoar_ci.dashboard.jenkins;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.fluent.Executor;

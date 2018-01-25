@@ -1,4 +1,4 @@
-package com.github.ladicek.rourka.openshift;
+package com.github.rhoar_ci.dashboard.openshift;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.ElementType;

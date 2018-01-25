@@ -1,4 +1,4 @@
-package com.github.ladicek.rourka.openshift;
+package com.github.rhoar_ci.dashboard.openshift;
 
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpRequestInterceptor;

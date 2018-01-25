@@ -4,11 +4,11 @@ items:
 - apiVersion: v1
   kind: ImageStream
   metadata:
-    name: rourka
+    name: dashboard
 - apiVersion: v1
   kind: BuildConfig
   metadata:
-    name: rourka
+    name: dashboard
   spec:
     source:
       type: Git
@@ -24,37 +24,37 @@ items:
     output:
       to:
         kind: ImageStreamTag
-        name: "rourka:latest"
+        name: "dashboard:latest"
 - apiVersion: v1
   kind: ServiceAccount
   metadata:
-    name: rourka
+    name: dashboard
 - apiVersion: v1
   kind: RoleBinding
   metadata:
-    name: rourka
+    name: dashboard
   roleRef:
     name: edit
   subjects:
   - kind: ServiceAccount
-    name: rourka
+    name: dashboard
 - apiVersion: v1
   kind: DeploymentConfig
   metadata:
-    name: rourka
+    name: dashboard
     labels:
-      app: rourka
+      app: dashboard
   spec:
     replicas: 1
     template:
       metadata:
         labels:
-          app: rourka
+          app: dashboard
       spec:
-        serviceAccountName: rourka
+        serviceAccountName: dashboard
         containers:
-        - name: rourka
-          image: "rourka:latest"
+        - name: dashboard
+          image: "dashboard:latest"
           ports:
           - containerPort: 8080
           readinessProbe:
@@ -75,18 +75,18 @@ items:
         automatic: true
         from:
           kind: ImageStreamTag
-          name: "rourka:latest"
+          name: "dashboard:latest"
         containerNames:
-        - rourka
+        - dashboard
 - apiVersion: v1
   kind: Service
   metadata:
-    name: rourka
+    name: dashboard
     labels:
-      app: rourka
+      app: dashboard
   spec:
     selector:
-      app: rourka
+      app: dashboard
     type: ClusterIP
     ports:
     - protocol: TCP
@@ -95,12 +95,12 @@ items:
 - apiVersion: v1
   kind: Route
   metadata:
-    name: rourka
+    name: dashboard
     labels:
-      app: rourka
+      app: dashboard
   spec:
     to:
       kind: Service
-      name: rourka
+      name: dashboard
     port:
       targetPort: 8080

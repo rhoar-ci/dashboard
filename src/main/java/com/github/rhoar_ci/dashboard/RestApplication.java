@@ -1,4 +1,4 @@
-package com.github.ladicek.rourka;
+package com.github.rhoar_ci.dashboard;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

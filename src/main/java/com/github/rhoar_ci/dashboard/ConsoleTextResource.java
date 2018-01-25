@@ -1,6 +1,6 @@
-package com.github.ladicek.rourka;
+package com.github.rhoar_ci.dashboard;
 
-import com.github.ladicek.rourka.jenkins.JenkinsClient;
+import com.github.rhoar_ci.dashboard.jenkins.JenkinsClient;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;

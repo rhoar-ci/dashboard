@@ -1,14 +1,14 @@
-package com.github.ladicek.rourka.ci;
+package com.github.rhoar_ci.dashboard.ci;
 
 import java.util.Objects;
 
 /**
- * Row of the CI status table.
+ * Name of one of the CI status tables. Corresponds to an OpenShift cluster on which the tests are executed.
  */
-public final class TestDescription {
+public final class TestCluster {
     private final String value;
 
-    public TestDescription(String value) {
+    public TestCluster(String value) {
         this.value = value;
     }
 
@@ -20,8 +20,8 @@ public final class TestDescription {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof TestDescription)) return false;
-        TestDescription that = (TestDescription) o;
+        if (!(o instanceof TestCluster)) return false;
+        TestCluster that = (TestCluster) o;
         return Objects.equals(value, that.value);
     }
 

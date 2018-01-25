@@ -1,12 +1,12 @@
-package com.github.ladicek.rourka;
+package com.github.rhoar_ci.dashboard;
 
-import com.github.ladicek.rourka.ci.TestCluster;
-import com.github.ladicek.rourka.ci.TestDescription;
-import com.github.ladicek.rourka.ci.TestResult;
-import com.github.ladicek.rourka.ci.TestType;
-import com.github.ladicek.rourka.jenkins.JenkinsClient;
-import com.github.ladicek.rourka.jenkins.Job;
-import com.github.ladicek.rourka.thymeleaf.View;
+import com.github.rhoar_ci.dashboard.ci.TestCluster;
+import com.github.rhoar_ci.dashboard.ci.TestDescription;
+import com.github.rhoar_ci.dashboard.ci.TestResult;
+import com.github.rhoar_ci.dashboard.ci.TestType;
+import com.github.rhoar_ci.dashboard.jenkins.JenkinsClient;
+import com.github.rhoar_ci.dashboard.jenkins.Job;
+import com.github.rhoar_ci.dashboard.thymeleaf.View;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;

@@ -1,4 +1,4 @@
-package com.github.ladicek.rourka;
+package com.github.rhoar_ci.dashboard;
 
 import io.fabric8.openshift.client.OpenShiftClient;
 

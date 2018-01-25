@@ -1,4 +1,4 @@
-rourka:
+dashboard:
   jenkins:
     url: https://jenkins-myproject.minishift/
   openshift:

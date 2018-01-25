@@ -1,14 +1,14 @@
-package com.github.ladicek.rourka.ci;
+package com.github.rhoar_ci.dashboard.ci;
 
 import java.util.Objects;
 
 /**
- * Column of the CI status table.
+ * Row of the CI status table.
  */
-public final class TestType {
+public final class TestDescription {
     private final String value;
 
-    public TestType(String value) {
+    public TestDescription(String value) {
         this.value = value;
     }
 
@@ -20,8 +20,8 @@ public final class TestType {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof TestType)) return false;
-        TestType that = (TestType) o;
+        if (!(o instanceof TestDescription)) return false;
+        TestDescription that = (TestDescription) o;
         return Objects.equals(value, that.value);
     }
 

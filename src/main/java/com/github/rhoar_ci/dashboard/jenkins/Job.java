@@ -1,9 +1,9 @@
-package com.github.ladicek.rourka.jenkins;
+package com.github.rhoar_ci.dashboard.jenkins;
 
-import com.github.ladicek.rourka.ci.TestCluster;
-import com.github.ladicek.rourka.ci.TestDescription;
-import com.github.ladicek.rourka.ci.TestResult;
-import com.github.ladicek.rourka.ci.TestType;
+import com.github.rhoar_ci.dashboard.ci.TestCluster;
+import com.github.rhoar_ci.dashboard.ci.TestDescription;
+import com.github.rhoar_ci.dashboard.ci.TestResult;
+import com.github.rhoar_ci.dashboard.ci.TestType;
 
 public final class Job {
     private final TestCluster cluster;

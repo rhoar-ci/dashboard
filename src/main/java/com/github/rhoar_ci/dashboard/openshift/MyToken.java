@@ -1,4 +1,4 @@
-package com.github.ladicek.rourka.openshift;
+package com.github.rhoar_ci.dashboard.openshift;
 
 import org.wildfly.swarm.spi.runtime.annotations.ConfigurationValue;
 
@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 @ApplicationScoped
 public class MyToken {
     @Inject
-    @ConfigurationValue("rourka.openshift.token")
+    @ConfigurationValue("dashboard.openshift.token")
     private String value;
 
     @PostConstruct

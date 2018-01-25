@@ -1,4 +1,4 @@
-package com.github.ladicek.rourka.ci;
+package com.github.rhoar_ci.dashboard.ci;
 
 import java.time.LocalDateTime;
 

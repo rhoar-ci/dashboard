@@ -1,4 +1,4 @@
-package com.github.ladicek.rourka.jenkins;
+package com.github.rhoar_ci.dashboard.jenkins;
 
 public final class StartedBuild {
     public final boolean success;

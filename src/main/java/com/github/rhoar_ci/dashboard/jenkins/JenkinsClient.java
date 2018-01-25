@@ -1,15 +1,14 @@
-package com.github.ladicek.rourka.jenkins;
+package com.github.rhoar_ci.dashboard.jenkins;
 
-import com.github.ladicek.rourka.ConsoleTextResource;
-import com.github.ladicek.rourka.StartBuildResource;
-import com.github.ladicek.rourka.ci.BuildStatus;
-import com.github.ladicek.rourka.ci.TestCluster;
-import com.github.ladicek.rourka.ci.TestDescription;
-import com.github.ladicek.rourka.ci.TestResult;
-import com.github.ladicek.rourka.ci.TestType;
-import com.github.ladicek.rourka.openshift.TokenAuthorizingHttpClient;
+import com.github.rhoar_ci.dashboard.ConsoleTextResource;
+import com.github.rhoar_ci.dashboard.StartBuildResource;
+import com.github.rhoar_ci.dashboard.ci.BuildStatus;
+import com.github.rhoar_ci.dashboard.ci.TestCluster;
+import com.github.rhoar_ci.dashboard.ci.TestDescription;
+import com.github.rhoar_ci.dashboard.ci.TestResult;
+import com.github.rhoar_ci.dashboard.ci.TestType;
+import com.github.rhoar_ci.dashboard.openshift.TokenAuthorizingHttpClient;
 import com.google.gson.Gson;
-import io.fabric8.openshift.client.OpenShiftClient;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.fluent.Content;
 import org.apache.http.client.fluent.ContentResponseHandler;
@@ -35,7 +34,7 @@ public class JenkinsClient {
     private CloseableHttpClient httpClient;
 
     @Inject
-    @ConfigurationValue("rourka.jenkins.url")
+    @ConfigurationValue("dashboard.jenkins.url")
     private String jenkinsBaseUrl;
 
     @PostConstruct

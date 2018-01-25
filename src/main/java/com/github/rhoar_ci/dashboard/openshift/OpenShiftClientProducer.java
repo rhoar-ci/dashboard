@@ -1,4 +1,4 @@
-package com.github.ladicek.rourka.openshift;
+package com.github.rhoar_ci.dashboard.openshift;
 
 import io.fabric8.kubernetes.client.Config;
 import io.fabric8.kubernetes.client.ConfigBuilder;
@@ -19,7 +19,7 @@ public class OpenShiftClientProducer {
     private MyToken myToken;
 
     @Inject
-    @ConfigurationValue("rourka.openshift.url")
+    @ConfigurationValue("dashboard.openshift.url")
     private String openshiftUrl;
 
     @PostConstruct
