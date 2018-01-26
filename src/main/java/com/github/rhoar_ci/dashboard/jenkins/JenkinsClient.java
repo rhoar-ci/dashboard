@@ -9,6 +9,7 @@ import com.github.rhoar_ci.dashboard.ci.TestResult;
 import com.github.rhoar_ci.dashboard.ci.TestType;
 import com.github.rhoar_ci.dashboard.openshift.TokenAuthorizingHttpClient;
 import com.google.gson.Gson;
+import com.google.gson.JsonParseException;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.fluent.Content;
 import org.apache.http.client.fluent.ContentResponseHandler;
@@ -25,7 +26,9 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @RequestScoped
 public class JenkinsClient {
@@ -53,10 +56,12 @@ public class JenkinsClient {
         JsonJobs jobs = gson.fromJson(jsonString, JsonJobs.class);
 
         return jobs.jobs.stream()
-                .filter(it -> it.description != null && !it.description.isEmpty())
                 .map(it -> {
-                    String description = it.description.replaceAll("<!-- .*? -->", "");
-                    JsonJobDataInDescription data = gson.fromJson(description, JsonJobDataInDescription.class);
+                    Optional<JsonJobDataInDescription> optionalData = readJobDescription(it, gson);
+                    if (!optionalData.isPresent()) {
+                        return Optional.<Job>empty();
+                    }
+                    JsonJobDataInDescription data = optionalData.get();
 
                     TestResult lastResult;
                     boolean buildingNow = it.lastBuild != null && it.lastBuild.building;
@@ -71,9 +76,24 @@ public class JenkinsClient {
                         lastResult = new TestResult(BuildStatus.UNKNOWN, -1, null, null, buildingNow, runBuildLink);
                     }
 
-                    return new Job(new TestCluster(data.cluster), new TestDescription(data.description), new TestType(data.type), lastResult);
+                    return Optional.of(new Job(new TestCluster(data.cluster), new TestDescription(data.description),
+                            new TestType(data.type), lastResult));
                 })
+                .flatMap(it -> it.isPresent() ? Stream.of(it.get()) : Stream.empty())
                 .collect(Collectors.toList());
+    }
+
+    private static Optional<JsonJobDataInDescription> readJobDescription(JsonJobs.JsonJob job, Gson gson) {
+        if (job.description == null || job.description.isEmpty()) {
+            return Optional.empty();
+        }
+
+        try {
+            String description = job.description.replaceAll("<!-- .*? -->", "");
+            return Optional.of(gson.fromJson(description, JsonJobDataInDescription.class));
+        } catch (JsonParseException e) {
+            return Optional.empty();
+        }
     }
 
     public ConsoleText streamConsoleText(String buildName, String buildNumber) {
