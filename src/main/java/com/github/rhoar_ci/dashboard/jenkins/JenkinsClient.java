@@ -49,7 +49,7 @@ public class JenkinsClient {
     }
 
     public List<Job> getRelevantJobs() throws IOException {
-        String url = jenkinsUrl("/api/json?tree=jobs[name,description,lastCompletedBuild[number,timestamp,result],lastBuild[building]]");
+        String url = jenkinsUrl("/api/json?tree=jobs[name,description,inQueue,lastCompletedBuild[number,timestamp,result],lastBuild[building]]");
         String jsonString = Executor.newInstance(httpClient).execute(Request.Get(url)).returnContent().asString();
 
         Gson gson = new Gson();
@@ -64,7 +64,7 @@ public class JenkinsClient {
                     JsonJobDataInDescription data = optionalData.get();
 
                     TestResult lastResult;
-                    boolean buildingNow = it.lastBuild != null && it.lastBuild.building;
+                    boolean buildingNow = it.inQueue || (it.lastBuild != null && it.lastBuild.building);
                     String runBuildLink = StartBuildResource.link(it.name);
                     if (it.lastCompletedBuild != null) {
                         String link = ConsoleTextResource.link(it.name, it.lastCompletedBuild.number);

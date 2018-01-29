@@ -8,12 +8,9 @@ class JsonJobs {
     static class JsonJob {
         String name;
         String description;
+        boolean inQueue;
         JsonLastCompletedBuild lastCompletedBuild;
         JsonLastBuild lastBuild;
-
-        boolean isRelevant() {
-            return description != null && !description.isEmpty();
-        }
     }
 
     static class JsonLastCompletedBuild {
