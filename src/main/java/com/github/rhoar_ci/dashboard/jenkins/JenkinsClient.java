@@ -9,7 +9,6 @@ import com.github.rhoar_ci.dashboard.ci.TestResult;
 import com.github.rhoar_ci.dashboard.ci.TestType;
 import com.github.rhoar_ci.dashboard.openshift.TokenAuthorizingHttpClient;
 import com.google.gson.Gson;
-import com.google.gson.JsonParseException;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.fluent.Content;
 import org.apache.http.client.fluent.ContentResponseHandler;
@@ -88,12 +87,7 @@ public class JenkinsClient {
             return Optional.empty();
         }
 
-        try {
-            String description = job.description.replaceAll("<!-- .*? -->", "");
-            return Optional.of(gson.fromJson(description, JsonJobDataInDescription.class));
-        } catch (JsonParseException e) {
-            return Optional.empty();
-        }
+        return JsonJobDataInDescription.parse(job.description);
     }
 
     public ConsoleText streamConsoleText(String buildName, String buildNumber) {

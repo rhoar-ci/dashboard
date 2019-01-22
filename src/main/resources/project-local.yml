@@ -1,4 +1,6 @@
 dashboard:
+  upload:
+    token: secret_value
   jenkins:
     url: https://jenkins-myproject.minishift/
   openshift:
