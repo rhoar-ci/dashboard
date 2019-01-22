@@ -11,7 +11,7 @@ public final class Job {
     private final TestType type;
     private final TestResult lastResult;
 
-    Job(TestCluster cluster, TestDescription description, TestType type, TestResult lastResult) {
+    public Job(TestCluster cluster, TestDescription description, TestType type, TestResult lastResult) {
         this.cluster = cluster;
         this.description = description;
         this.type = type;

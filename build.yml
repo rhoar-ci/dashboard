@@ -68,6 +68,12 @@ items:
               path: /live
               port: 8080
               scheme: HTTP
+          env:
+            - name: UPLOAD_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: upload-secret
+                  key: token
     triggers:
     - type: ConfigChange
     - type: ImageChange
