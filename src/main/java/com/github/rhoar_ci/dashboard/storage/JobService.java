@@ -5,15 +5,15 @@ import com.github.rhoar_ci.dashboard.ci.TestDescription;
 import com.github.rhoar_ci.dashboard.jenkins.Job;
 import org.apache.commons.lang3.tuple.Pair;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.ApplicationScoped;
 import java.util.*;
 
-@RequestScoped
+@ApplicationScoped
 public class JobService {
-    private static Map<Pair<TestCluster, TestDescription>, Job> jobStorage= new HashMap<>();
+    private Map<Pair<TestCluster, TestDescription>, Job> jobStorage= new HashMap<>();
 
     public void updateJob(Job jenkinsJob){
-        Pair<TestCluster, TestDescription> pair= jobToPair(jenkinsJob);
+        Pair<TestCluster, TestDescription> pair = jobToPair(jenkinsJob);
         jobStorage.put(pair, jenkinsJob);
     }
 
