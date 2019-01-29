@@ -1,3 +1,7 @@
+# This file can be used for deploying the dashboard via S2I,
+# but deployment via Fabric8 Maven plugin is the preferred way.
+# The Jenkins job for deploying the dashboard also uses FMP.
+# At least this file should always stay in sync with src/main/fabric8.
 apiVersion: v1
 kind: List
 items:
