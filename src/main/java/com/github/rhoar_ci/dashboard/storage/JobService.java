@@ -7,7 +7,9 @@ import com.github.rhoar_ci.dashboard.jenkins.Job;
 import org.apache.commons.lang3.tuple.Triple;
 
 import javax.enterprise.context.ApplicationScoped;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 @ApplicationScoped
 public class JobService {

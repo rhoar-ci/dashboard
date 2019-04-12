@@ -1,6 +1,10 @@
 package com.github.rhoar_ci.dashboard;
 
-import com.github.rhoar_ci.dashboard.ci.*;
+import com.github.rhoar_ci.dashboard.ci.BuildStatus;
+import com.github.rhoar_ci.dashboard.ci.TestCluster;
+import com.github.rhoar_ci.dashboard.ci.TestDescription;
+import com.github.rhoar_ci.dashboard.ci.TestResult;
+import com.github.rhoar_ci.dashboard.ci.TestType;
 import com.github.rhoar_ci.dashboard.jenkins.Job;
 import com.github.rhoar_ci.dashboard.jenkins.JsonJobDataInDescription;
 import com.github.rhoar_ci.dashboard.storage.JobService;
