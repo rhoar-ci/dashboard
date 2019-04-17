@@ -30,7 +30,7 @@ public class ConsoleTextResource {
             writer.println("  <meta charset=\"utf-8\">");
             writer.println("  <title>" + buildName + " #" + buildNumber + "</title>");
             writer.println("</head>");
-            writer.println("<body style=\"color: #f3f3f3; background-color: #272822\">");
+            writer.println("<body style=\"color: #f3f3f3; background-color: #444; font-size: 14px;\">");
             writer.println(" <pre>");
             writer.flush();
             jenkins.streamConsoleText(buildName, buildNumber).writeTo(new HtmlAnsiOutputStream(out));
